@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_17_bin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_17_bin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Day6/META-INF/Day6.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/travelExperts/Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelExperts/Agent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/travelExperts/AgentsDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelExperts/AgentsDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/travelExperts/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelExperts/Controller.java" afterDir="false" />
     </list>
@@ -208,7 +207,8 @@
       <workItem from="1568162316324" duration="68000" />
       <workItem from="1568166458064" duration="3510000" />
       <workItem from="1568181407952" duration="1266000" />
-      <workItem from="1568213615343" duration="5893000" />
+      <workItem from="1568213615343" duration="5964000" />
+      <workItem from="1568227039049" duration="7899000" />
     </task>
     <servers />
   </component>

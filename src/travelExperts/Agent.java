@@ -15,10 +15,10 @@ public class Agent {
     private String agtBusPhone;
     private String agtEmail;
     private String agtPosition;
-    private int agencyId;
+    private Integer agencyId;
 
     // Constructor
-    public Agent(int agentId, String agtFirstName, String agtMiddleInitial, String agtLastName, String agtBusPhone, String agtEmail, String agtPosition, int agencyId) {
+    public Agent(int agentId, String agtFirstName, String agtMiddleInitial, String agtLastName, String agtBusPhone, String agtEmail, String agtPosition, Integer agencyId) {
         this.agentId = agentId;
         this.agtFirstName = agtFirstName;
         this.agtMiddleInitial = agtMiddleInitial;
@@ -79,7 +79,7 @@ public class Agent {
         this.agtPosition = agtPosition;
     }
 
-    public int getAgencyId() {
+    public Integer getAgencyId() {
         return agencyId;
     }
     public void setAgencyId(int agencyId) {

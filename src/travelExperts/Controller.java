@@ -61,7 +61,7 @@ public class Controller {
                     uxEmail.getText(),
                     uxPosition.getText(),
                     agencyId);
-            if(!AgentsDB.updateAgents(alteredAgent)) {
+            if(!AgentsDB.updateAgent(selectedAgent, alteredAgent)) {
 
                 Alert alert = new Alert(Alert.AlertType.ERROR,
                         "There was an error updating the table", ButtonType.OK);
@@ -70,11 +70,13 @@ public class Controller {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
                         "Update successful", ButtonType.OK);
                 alert.show();
+                selectedAgent = alteredAgent;
             }
         }
         catch(Exception e) {
-
+            e.printStackTrace();
         }
+        updateDisplay();
     }
 
     @FXML
@@ -95,26 +97,36 @@ public class Controller {
         uxAgents.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Agent>() {
             @Override
             public void changed(ObservableValue<? extends Agent> observable, Agent oldValue, Agent newValue) {
-                selectedAgent = newValue;
-                updateDisplay(newValue);
+                if(newValue != null) {
+                    selectedAgent = newValue;
+                    updateDisplay();
+                }
             }
         });
 
-        // Add items to comboBox
-        ObservableList<Agent> list = FXCollections.observableList(AgentsDB.getAgentList());
-        uxAgents.setItems(list);
-        uxAgents.getSelectionModel().select(0);
+        loadData();
+
 
         initTextFields();
         // Disable all textFields
         toggleTextFields(false);
     }
 
+    private void loadData() {
+        // Add items to comboBox
+        ObservableList<Agent> list = FXCollections.observableList(AgentsDB.getAgentList());
+        uxAgents.setItems(list);
+        uxAgents.getSelectionModel().select(0);
+
+        updateDisplay();
+    }
+
     /**
      * Refresh the display with currently selected Agent
-     * @param selectedAgent
      */
-    private void updateDisplay(Agent selectedAgent) {
+    private void updateDisplay() {
+
+
         if (selectedAgent != null) {
             uxId.setText(String.valueOf(selectedAgent.getAgentId()));
             uxFirstName.setText(selectedAgent.getAgtFirstName());
