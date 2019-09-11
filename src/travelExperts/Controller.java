@@ -10,9 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class Controller {
 
@@ -34,6 +32,7 @@ public class Controller {
 
 
 
+    private Agent selectedAgent;
     private ArrayList<TextField> textFields;
 
     // Event handlers
@@ -49,6 +48,33 @@ public class Controller {
         System.out.println("Save button clicked");
 
         toggleTextFields(false);
+
+        try {
+            int agentId = Integer.parseInt(uxId.getText());
+            int agencyId = Integer.parseInt(uxAgencyID.getText());
+
+            Agent alteredAgent = new Agent(agentId,
+                    uxFirstName.getText(),
+                    uxInitial.getText(),
+                    uxLastName.getText(),
+                    uxBusPhone.getText(),
+                    uxEmail.getText(),
+                    uxPosition.getText(),
+                    agencyId);
+            if(!AgentsDB.updateAgents(alteredAgent)) {
+
+                Alert alert = new Alert(Alert.AlertType.ERROR,
+                        "There was an error updating the table", ButtonType.OK);
+                alert.show();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+                        "Update successful", ButtonType.OK);
+                alert.show();
+            }
+        }
+        catch(Exception e) {
+
+        }
     }
 
     @FXML
@@ -69,6 +95,7 @@ public class Controller {
         uxAgents.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Agent>() {
             @Override
             public void changed(ObservableValue<? extends Agent> observable, Agent oldValue, Agent newValue) {
+                selectedAgent = newValue;
                 updateDisplay(newValue);
             }
         });
@@ -101,19 +128,9 @@ public class Controller {
     }
 
     /**
-     * Clear the display
+     * Toggle the texFields "editable" properties
      */
     private void toggleTextFields(boolean isEnable) {
-/*
-        uxId.clear();
-        uxFirstName.clear();
-        uxInitial.clear();
-        uxLastName.clear();
-        uxBusPhone.clear();
-        uxEmail.clear();
-        uxPosition.clear();
-        uxAgencyID.clear();
-*/
         for (TextField t : textFields ) {
             t.setEditable(isEnable);
         }
@@ -121,7 +138,7 @@ public class Controller {
 
     private void initTextFields() {
         textFields = new ArrayList<>();
-        textFields.add(uxId);
+//        textFields.add(uxId);
         textFields.add(uxFirstName);
         textFields.add(uxInitial);
         textFields.add(uxLastName);

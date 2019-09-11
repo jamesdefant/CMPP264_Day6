@@ -1,5 +1,9 @@
 package travelExperts;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.stage.Window;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -12,16 +16,29 @@ public class AgentsDB {
 
     private static final String CONN_STRING = "jdbc:mysql://localhost/travelexperts";
 
-    public static ArrayList<Agent> getAgentList() {
-        ArrayList<Agent> returnValue = new ArrayList<>();
+    private static Connection getConnection() {
+        Connection conn = null;
 
         try {
             // Load the driver
             Class.forName("com.mysql.jdbc.Driver");
 
             // Define your Connection object
-            Connection conn = DriverManager.getConnection(CONN_STRING, "admin", "password");
+            conn = DriverManager.getConnection(CONN_STRING, "admin", "password");
+        }
+         catch (ClassNotFoundException | SQLException e) {
+             e.printStackTrace();
+         }
+        return conn;
+    }
 
+    public static ArrayList<Agent> getAgentList() {
+        ArrayList<Agent> returnValue = new ArrayList<>();
+        Connection conn = null;
+
+        try {
+            // Define your Connection object
+            conn = getConnection();
             // Create a Statement object
             Statement stmt = conn.createStatement();
 
@@ -42,15 +59,19 @@ public class AgentsDB {
             // Close the connection
             conn.close();
         }
-        catch(ClassNotFoundException | SQLException e) {
+        catch(SQLException e) {
             e.printStackTrace();
         }
+
 
         return returnValue;
     }
 
-    public static boolean updateAgents(int id) {
-        boolean isSuccess = false;
+    public static boolean updateAgents(Agent newAgent) {
+        boolean isSuccess = true;
+
+        System.out.println(newAgent.getAgtFirstName() + " " + newAgent.getAgtLastName() + "\n" +
+                           "ID: " + newAgent.getAgentId() + " | AgencyID: " + newAgent.getAgencyId());
 
         try{
             // Load the driver
@@ -59,11 +80,21 @@ public class AgentsDB {
             // Define your Connection object
             Connection conn = DriverManager.getConnection(CONN_STRING, "admin", "password");
 
-            // Create a Statement object
-            Statement stmt = conn.createStatement();
+            String sql = "UPDATE `agents` " +
+                         "SET `AgtFirstName`=? " +
+                            "WHERE `AgentId`=?";
 
-            // Execute the statement
-//            isSuccess = stmt.execute("UPDATE ")
+            // Create a Prepared Statement object
+            PreparedStatement prerpStmt = conn.prepareStatement(sql);
+            prerpStmt.setString(1, newAgent.getAgtFirstName());
+            prerpStmt.setInt(2, newAgent.getAgentId());
+
+            System.out.println("SQL: " + sql);
+            int rows = prerpStmt.executeUpdate();
+
+            if(rows == 0) {
+                isSuccess = false;
+            }
 
             // Close the connection
             conn.close();
