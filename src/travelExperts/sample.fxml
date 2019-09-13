@@ -6,193 +6,251 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="323.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelExperts.Controller">
-   <Label layoutX="48.0" layoutY="14.0" text="Choose an agent (ID):">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="343.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelExperts.Controller">
+   <Label layoutX="20.0" layoutY="14.0" text="Choose an agent (ID):">
       <font>
          <Font size="18.0" />
       </font>
    </Label>
-   <ComboBox fx:id="uxAgents" layoutX="48.0" layoutY="41.0" prefHeight="31.0" prefWidth="172.0" />
-   <Button fx:id="uxEdit" layoutX="14.0" layoutY="246.0" mnemonicParsing="false" onAction="#onAction_uxEdit" prefHeight="50.0" prefWidth="124.0" text="EDIT">
+   <ComboBox fx:id="uxAgents" layoutX="20.0" layoutY="41.0" prefHeight="31.0" prefWidth="259.0" />
+   <Button fx:id="uxEdit" layoutX="14.0" layoutY="273.0" mnemonicParsing="false" onAction="#onAction_uxEdit" prefHeight="50.0" prefWidth="124.0" text="EDIT">
       <font>
          <Font name="System Bold" size="19.0" />
       </font>
    </Button>
-   <Button fx:id="uxSave" layoutX="156.0" layoutY="246.0" mnemonicParsing="false" onAction="#onAction_uxSave" prefHeight="50.0" prefWidth="124.0" text="SAVE">
+   <Button fx:id="uxSave" layoutX="156.0" layoutY="273.0" mnemonicParsing="false" onAction="#onAction_uxSave" prefHeight="50.0" prefWidth="124.0" text="SAVE">
       <font>
          <Font name="System Bold" size="19.0" />
       </font>
    </Button>
-   <HBox layoutX="299.0" layoutY="14.0" prefHeight="290.0" prefWidth="400.0">
+   <HBox layoutX="299.0" layoutY="14.0" prefHeight="296.0" prefWidth="530.0">
       <children>
-       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="290.0" prefWidth="200.0">
+       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="296.0" prefWidth="265.0">
             <children>
                <VBox layoutX="47.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <children>
-                     <Label prefHeight="29.0" prefWidth="200.0" text="ID:">
-                        <font>
-                           <Font size="15.0" />
-                        </font>
-                        <padding>
-                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                        </padding>
-                     </Label>
-                     <TextField fx:id="uxId" editable="false">
-                        <padding>
-                           <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                        </padding>
-                        <font>
-                           <Font size="16.0" />
-                        </font>
-                        <VBox.margin>
-                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                        </VBox.margin>
-                     </TextField>
-                     <Label prefHeight="29.0" prefWidth="200.0" text="First Name:">
-                        <font>
-                           <Font size="15.0" />
-                        </font>
-                        <padding>
-                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                        </padding>
-                     </Label>
-                     <TextField fx:id="uxFirstName">
+                     <VBox prefHeight="60.0" prefWidth="100.0">
+                        <children>
+                           <Label prefHeight="30.0" prefWidth="200.0" text="ID:">
+                              <font>
+                                 <Font size="15.0" />
+                              </font>
+                              <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </padding>
+                           </Label>
+                           <TextField fx:id="uxId" disable="true" editable="false" prefHeight="30.0">
+                              <padding>
+                                 <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                              </padding>
+                              <font>
+                                 <Font size="16.0" />
+                              </font>
+                              <VBox.margin>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </VBox.margin>
+                           </TextField>
+                        </children>
                         <padding>
                            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                         </padding>
-                        <font>
-                           <Font size="16.0" />
-                        </font>
-                        <VBox.margin>
-                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                        </VBox.margin>
-                     </TextField>
-                     <Label prefHeight="29.0" prefWidth="200.0" text="Middle Initial:">
-                        <font>
-                           <Font size="15.0" />
-                        </font>
-                        <padding>
-                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                        </padding>
-                     </Label>
-                     <TextField fx:id="uxInitial">
+                     </VBox>
+                     <VBox layoutX="10.0" layoutY="147.0" prefHeight="60.0" prefWidth="100.0" spacing="5.0">
+                        <children>
+                           <FlowPane hgap="10.0" prefHeight="200.0" prefWidth="200.0">
+                              <children>
+                                 <Label prefHeight="31.0" prefWidth="181.0" text="First Name:">
+                                    <font>
+                                       <Font size="15.0" />
+                                    </font>
+                                    <padding>
+                                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                 </Label>
+                                 <Label prefHeight="30.0" prefWidth="58.0" text="Initial:">
+                                    <font>
+                                       <Font size="15.0" />
+                                    </font>
+                                    <padding>
+                                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                 </Label>
+                              </children>
+                           </FlowPane>
+                           <FlowPane hgap="10.0" prefHeight="200.0" prefWidth="200.0">
+                              <children>
+                                 <TextField fx:id="uxFirstName" prefHeight="31.0" prefWidth="181.0">
+                                    <padding>
+                                       <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                    </padding>
+                                    <font>
+                                       <Font size="16.0" />
+                                    </font>
+                                    <FlowPane.margin>
+                                       <Insets />
+                                    </FlowPane.margin>
+                                 </TextField>
+                                 <TextField fx:id="uxInitial" prefHeight="30.0" prefWidth="58.0">
+                                    <padding>
+                                       <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                    </padding>
+                                    <font>
+                                       <Font size="16.0" />
+                                    </font>
+                                 </TextField>
+                              </children>
+                              <padding>
+                                 <Insets left="5.0" right="5.0" />
+                              </padding>
+                           </FlowPane>
+                        </children>
                         <padding>
                            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                         </padding>
-                        <font>
-                           <Font size="16.0" />
-                        </font>
-                        <VBox.margin>
-                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                        </VBox.margin>
-                     </TextField>
-                     <Label prefHeight="29.0" prefWidth="200.0" text="Last Name:">
-                        <font>
-                           <Font size="15.0" />
-                        </font>
-                        <padding>
-                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                        </padding>
-                     </Label>
-                     <TextField fx:id="uxLastName">
+                     </VBox>
+                     <VBox layoutX="10.0" layoutY="219.0" prefHeight="60.0" prefWidth="100.0" spacing="5.0">
+                        <children>
+                           <Label prefHeight="30.0" prefWidth="200.0" text="Business Phone:">
+                              <font>
+                                 <Font size="15.0" />
+                              </font>
+                              <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </padding>
+                           </Label>
+                           <TextField fx:id="uxBusPhone" prefHeight="30.0">
+                              <padding>
+                                 <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                              </padding>
+                              <font>
+                                 <Font size="16.0" />
+                              </font>
+                              <VBox.margin>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </VBox.margin>
+                           </TextField>
+                        </children>
                         <padding>
                            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                         </padding>
-                        <font>
-                           <Font size="16.0" />
-                        </font>
-                        <VBox.margin>
-                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                        </VBox.margin>
-                     </TextField>
+                     </VBox>
+                     <VBox prefHeight="60.0" prefWidth="100.0" spacing="5.0">
+                        <children>
+                           <Label prefHeight="30.0" prefWidth="200.0" text="Position:">
+                              <font>
+                                 <Font size="15.0" />
+                              </font>
+                              <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </padding>
+                           </Label>
+                           <TextField fx:id="uxPosition" prefHeight="30.0">
+                              <padding>
+                                 <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                              </padding>
+                              <font>
+                                 <Font size="16.0" />
+                              </font>
+                              <VBox.margin>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </VBox.margin>
+                           </TextField>
+                        </children>
+                        <padding>
+                           <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                        </padding>
+                     </VBox>
                   </children>
                </VBox>
             </children>
          </AnchorPane>
-       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="200.0">
+       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="296.0" prefWidth="265.0">
             <children>
                <VBox layoutX="14.0" layoutY="29.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <children>
-                     <Label prefHeight="29.0" prefWidth="200.0" text="Business Phone:">
-                        <font>
-                           <Font size="15.0" />
-                        </font>
-                        <padding>
-                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                        </padding>
-                     </Label>
-                     <TextField fx:id="uxBusPhone">
-                        <padding>
-                           <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                        </padding>
-                        <font>
-                           <Font size="16.0" />
-                        </font>
-                        <VBox.margin>
-                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                        </VBox.margin>
-                     </TextField>
-                     <Label prefHeight="29.0" prefWidth="200.0" text="Email:">
-                        <font>
-                           <Font size="15.0" />
-                        </font>
-                        <padding>
-                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                        </padding>
-                     </Label>
-                     <TextField fx:id="uxEmail">
+                     <VBox layoutX="10.0" layoutY="82.0" prefHeight="60.0" prefWidth="100.0">
+                        <children>
+                           <Label prefHeight="30.0" prefWidth="200.0" text="Agency ID:">
+                              <font>
+                                 <Font size="15.0" />
+                              </font>
+                              <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </padding>
+                           </Label>
+                           <TextField fx:id="uxAgencyID" prefHeight="30.0">
+                              <padding>
+                                 <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                              </padding>
+                              <font>
+                                 <Font size="16.0" />
+                              </font>
+                              <VBox.margin>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </VBox.margin>
+                           </TextField>
+                        </children>
                         <padding>
                            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                         </padding>
-                        <font>
-                           <Font size="16.0" />
-                        </font>
-                        <VBox.margin>
-                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                        </VBox.margin>
-                     </TextField>
-                     <Label prefHeight="29.0" prefWidth="200.0" text="Position:">
-                        <font>
-                           <Font size="15.0" />
-                        </font>
-                        <padding>
-                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                        </padding>
-                     </Label>
-                     <TextField fx:id="uxPosition">
-                        <padding>
-                           <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                        </padding>
-                        <font>
-                           <Font size="16.0" />
-                        </font>
-                        <VBox.margin>
-                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                        </VBox.margin>
-                     </TextField>
-                     <Label prefHeight="29.0" prefWidth="200.0" text="Agency ID:">
-                        <font>
-                           <Font size="15.0" />
-                        </font>
-                        <padding>
-                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                        </padding>
-                     </Label>
-                     <TextField fx:id="uxAgencyID">
+                     </VBox>
+                     <VBox prefHeight="60.0" prefWidth="100.0">
+                        <children>
+                           <Label prefHeight="30.0" prefWidth="200.0" text="Last Name:">
+                              <font>
+                                 <Font size="15.0" />
+                              </font>
+                              <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </padding>
+                           </Label>
+                           <TextField fx:id="uxLastName" prefHeight="30.0">
+                              <padding>
+                                 <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                              </padding>
+                              <font>
+                                 <Font size="16.0" />
+                              </font>
+                              <VBox.margin>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </VBox.margin>
+                           </TextField>
+                        </children>
                         <padding>
                            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                         </padding>
-                        <font>
-                           <Font size="16.0" />
-                        </font>
-                        <VBox.margin>
-                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                        </VBox.margin>
-                     </TextField>
+                     </VBox>
+                     <VBox prefHeight="60.0" prefWidth="100.0">
+                        <children>
+                           <Label prefHeight="30.0" prefWidth="200.0" text="Email:">
+                              <font>
+                                 <Font size="15.0" />
+                              </font>
+                              <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </padding>
+                           </Label>
+                           <TextField fx:id="uxEmail" prefHeight="30.0">
+                              <padding>
+                                 <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                              </padding>
+                              <font>
+                                 <Font size="16.0" />
+                              </font>
+                              <VBox.margin>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </VBox.margin>
+                           </TextField>
+                        </children>
+                        <padding>
+                           <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                        </padding>
+                     </VBox>
                   </children>
                </VBox>
             </children>

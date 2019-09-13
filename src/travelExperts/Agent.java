@@ -2,6 +2,8 @@ package travelExperts;
 
 /**
  * Entity class to hold data for 1 row in travelexperts.agents table
+ * Course: CMPP-264 - Java
+ * Assignment: Day 6 Exercise
  * Author: James Defant
  * Date: Sep 10 2019
  */
@@ -9,16 +11,24 @@ public class Agent {
 
     // Member variables
     private int agentId;
-    private String agtFirstName;
-    private String agtMiddleInitial;
-    private String agtLastName;
-    private String agtBusPhone;
-    private String agtEmail;
-    private String agtPosition;
-    private Integer agencyId;
+    private String agtFirstName;        // nullable
+    private String agtMiddleInitial;    // nullable
+    private String agtLastName;         // nullable
+    private String agtBusPhone;         // nullable
+    private String agtEmail;            // nullable
+    private String agtPosition;         // nullable
+    private Integer agencyId;           // nullable
 
     // Constructor
-    public Agent(int agentId, String agtFirstName, String agtMiddleInitial, String agtLastName, String agtBusPhone, String agtEmail, String agtPosition, Integer agencyId) {
+    public Agent(int agentId,
+                 String agtFirstName,
+                 String agtMiddleInitial,
+                 String agtLastName,
+                 String agtBusPhone,
+                 String agtEmail,
+                 String agtPosition,
+                 Integer agencyId) {
+
         this.agentId = agentId;
         this.agtFirstName = agtFirstName;
         this.agtMiddleInitial = agtMiddleInitial;
@@ -89,6 +99,7 @@ public class Agent {
     // Methods
     @Override
     public String toString() {
-        return  String.valueOf(agentId);
+        return  String.valueOf(agentId) +
+                " - " + agtLastName + ", " + agtFirstName;
     }
 }
